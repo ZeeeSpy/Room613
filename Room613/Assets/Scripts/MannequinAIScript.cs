@@ -24,10 +24,12 @@ public class MannequinAIScript : MonoBehaviour
     public SpawnDetectionScript B;
     public SpawnDetectionScript C;
     public SpawnDetectionScript D;
+    public SpawnDetectionScript E;
     private Vector3 ALoc;
     private Vector3 BLoc;
     private Vector3 CLoc;
     private Vector3 DLoc;
+    private Vector3 ELoc;
     public int prefLoc;
 
     public KillBoxScript mykillbox;
@@ -38,6 +40,7 @@ public class MannequinAIScript : MonoBehaviour
         BLoc = new Vector3(-21,1,2);
         CLoc = new Vector3(2,1,2);
         DLoc = new Vector3(23,1,-14);
+        ELoc = new Vector3(21, 1, -22);
     }
     void Update()
     {
@@ -116,7 +119,7 @@ public class MannequinAIScript : MonoBehaviour
         Chasing = false;
     }
 
-    private void teleportme()
+    private void teleportme() //TODO refactor to make it more readable/efficient
     {
         //PrefLoc stops manniquens being teleported ontop of eachother
         if (prefLoc == 1 && A.isactorDetected() == false)
@@ -168,8 +171,14 @@ public class MannequinAIScript : MonoBehaviour
             teleportsound.Play();
             self.transform.localPosition = DLoc;
             self.GetComponent<NavMeshAgent>().enabled = true;
-        }
-        else
+        } else if (E.isactorDetected() == false)
+                {
+            Debug.Log("Teleported To E");
+            self.GetComponent<NavMeshAgent>().enabled = false;
+            teleportsound.Play();
+            self.transform.localPosition = ELoc;
+            self.GetComponent<NavMeshAgent>().enabled = true;
+        } else
         {
             //IF theres a player or mannequin in all of them the player will eventually move allowing the mannequin to teleport
         }
