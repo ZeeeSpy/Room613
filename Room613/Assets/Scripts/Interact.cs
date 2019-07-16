@@ -13,6 +13,7 @@ public class Interact : MonoBehaviour
     public float interactionDistance;
     public bool isInteracting;
     public GameObject theplayer; 
+    private bool OSBD = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,11 @@ public class Interact : MonoBehaviour
         {
             interactIcon.enabled = false;
         }
+    }
+
+    public void OnScreenButtonDown()
+    {
+        OSBD = true;
     }
 
     // Update is called once per frame
@@ -37,14 +43,10 @@ public class Interact : MonoBehaviour
                     {
                         interactIcon.enabled = true;
                     }
-                    if (Input.GetButtonDown(interactbutton))
+                    if (OSBD)
                     {
-
-                        /*should really be done with a interactable object and everything inherits from it. so it's if interact layer, if interactable, getcomponent.interact();
-                        * but don't know how to do multiple inheritance or how to reconstruct the code in order for it to work better. it works now but it's horribly inefficient
-                        * works for now but needs to be changed. UPDATE, I should learn to read children dont need to inherit monobehaviour since they already inherit it from the parent object. 
-                        * sadly I realized this too late, but for future referance this can be made a load clearner. 
-                        */
+                    //needs heavy refactoring. make an interactable object with a generic "interact" method that can be called
+                    OSBD = false;
                         if (hit.collider.CompareTag("Door"))
                         {
                             hit.collider.GetComponent<DoorScript>().opendoor();
@@ -100,6 +102,9 @@ public class Interact : MonoBehaviour
                     }
 
                 }
-        } else {interactIcon.enabled = false;}
+        } else {
+            interactIcon.enabled = false;
+            OSBD = false;
+        }
     }
 }
