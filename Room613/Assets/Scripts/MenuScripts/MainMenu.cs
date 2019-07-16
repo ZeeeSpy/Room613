@@ -11,22 +11,19 @@ public class MainMenu : MonoBehaviour
     public AudioSource lightfizz;
     public AudioSource chasesound;
     public AudioSource lightfizzon;
-    public bool spinning = false;
+    private bool spinning = false;
     public GameObject loadingcircle;
 
     public void LoadLevel(string _levelname)
     {
-        loadingcircle.SetActive(true);
-        spinning = true;
+        StartCoroutine(LoadAsynchronously(_levelname));
+       
         SceneManager.LoadSceneAsync(_levelname);
     }
 
     private void Update()
     {
-        if (spinning)
-        {
-            loadingcircle.transform.Rotate(0, 0, 100f * Time.deltaTime);
-        }   
+
     }
 
     public void QuitGame()
@@ -38,6 +35,17 @@ public class MainMenu : MonoBehaviour
     {
         StartCoroutine(MenuSequence());
         loadingcircle.SetActive(false);
+    }
+    IEnumerator LoadAsynchronously(string _levelname)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(_levelname);
+
+        while (!operation.isDone)
+        {
+            loadingcircle.SetActive(true);
+            spinning = true;
+            yield return null;
+        }
     }
 
     IEnumerator MenuSequence()
