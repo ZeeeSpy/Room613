@@ -45,7 +45,7 @@ public class Interact : MonoBehaviour
                     }
                     if (OSBD)
                     {
-                    //needs heavy refactoring. make an interactable object with a generic "interact" method that can be called
+                    //highly inefficient but works for the purposes of the game
                     OSBD = false;
                         if (hit.collider.CompareTag("Door"))
                         {

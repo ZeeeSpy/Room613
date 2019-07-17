@@ -187,9 +187,6 @@ public class MannequinAIScript : MonoBehaviour
 
     private void gameover()
     {
-        SceneManager.LoadScene("GameOverScreen");
+        SceneManager.LoadScene("GameOverScreen"); //only way for player to lose is to die via mannequin
     }
 }
-
-
-//note this script is a mess, should probably have it do less. i.e. call a game over script and stuff like that but w/e

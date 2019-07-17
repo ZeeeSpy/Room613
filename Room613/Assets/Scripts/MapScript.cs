@@ -15,9 +15,9 @@ public class MapScript : MonoBehaviour
 
     bool mapcollected = false;
     bool mapisshowing = false;
-
     public Text texttoshow;
-
+    public GameObject GUImapbutton;
+    public GameObject GUImapbuttonExit;
 
     // Start is called before the first frame update
     void Start()
@@ -27,30 +27,26 @@ public class MapScript : MonoBehaviour
             mapparent.enabled = false; //canvas
             mapimg.SetActive(false); //map screen
             texttoshow.enabled = false;
-
+            GUImapbutton.SetActive(false);
+            GUImapbuttonExit.SetActive(false);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MapButtonPress()
     {
-        if (Input.GetButtonDown(mapbutton) && mapcollected)
-        {
-           Debug.Log("MapButtonPressed");
-           if (mapisshowing)
-            {
-                mapimg.SetActive(false);
-                mapisshowing = false;
-            } else
-            {
-                mapimg.SetActive(true);
-                mapisshowing = true;
-            }
-        } if (Input.GetButtonDown(mapbutton) && !mapcollected)
-        {
-            Debug.Log("MapButtonPressedWithNoMap");
-            //do nothing
-        }
+        mapimg.SetActive(true);
+        mapisshowing = true;
+        GUImapbutton.SetActive(false);
+        GUImapbuttonExit.SetActive(true);
+    }
+
+    public void MapButtonExitPress()
+    {
+        Debug.Log("MapExit");
+        mapimg.SetActive(false);
+        mapisshowing = false;
+        GUImapbutton.SetActive(true);
+        GUImapbuttonExit.SetActive(false);
     }
 
     public void mapcollect()
@@ -59,6 +55,7 @@ public class MapScript : MonoBehaviour
         mapparent.enabled = true;
         maponthewall.transform.localScale = new Vector3(0,0,0); //make invisible
         Debug.Log("Map Collected");
+        GUImapbutton.SetActive(true);
         texttoshow.enabled = true;
         Invoke("hidetext", 5);
     }
