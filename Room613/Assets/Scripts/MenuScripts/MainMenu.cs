@@ -11,7 +11,6 @@ public class MainMenu : MonoBehaviour
     public AudioSource lightfizz;
     public AudioSource chasesound;
     public AudioSource lightfizzon;
-    private bool spinning = false;
     public GameObject loadingcircle;
 
     public void LoadLevel(string _levelname)
@@ -39,11 +38,10 @@ public class MainMenu : MonoBehaviour
     IEnumerator LoadAsynchronously(string _levelname)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(_levelname);
-
+        loadingcircle.SetActive(true);
         while (!operation.isDone)
         {
-            loadingcircle.SetActive(true);
-            spinning = true;
+            loadingcircle.transform.Rotate(Vector3.back * Time.deltaTime);
             yield return null;
         }
     }
