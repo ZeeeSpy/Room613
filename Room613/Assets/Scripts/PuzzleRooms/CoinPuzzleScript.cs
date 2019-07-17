@@ -25,6 +25,7 @@ public class CoinPuzzleScript : MonoBehaviour
     public GameObject finaltrig1;
     public GameObject finaltrig2;
 
+    private int count = 0;
     //key stuff
     public GameObject Key; 
 
@@ -48,21 +49,27 @@ public class CoinPuzzleScript : MonoBehaviour
         if (a == 1)
         {
             one = true;
+            count++;
         }
         else if (a == 2)
         {
             two = true;
+            count++;
         }
         else if (a == 3)
         {
             three = true;
+            count++;
         }
         else if (a == 4)
         {
             four = true;
-        }else if (a == 5)
+            count++;
+        }
+        else if (a == 5)
         {
             five = true;
+            count++;
         }
     }
 
@@ -91,5 +98,10 @@ public class CoinPuzzleScript : MonoBehaviour
     {
         needmorecoins.enabled = false;
         youwin.enabled = false;
+    }
+
+    public string coincount()
+    {
+        return count.ToString(); ;
     }
 }

@@ -7,6 +7,7 @@ public class TouchControls : MonoBehaviour
 {
     public FixedJoystick MoveJoystick;
     public FixedJoystick LookJoystick;
+    public float sensitivity = 0f;
 
     void Start()
     {
@@ -19,6 +20,6 @@ public class TouchControls : MonoBehaviour
         var fps = GetComponent<FirstPersonController>();
 
         fps.RunAxis = MoveJoystick.Direction;
-        fps.m_MouseLook.LookAxis = LookJoystick.Direction;
+        fps.m_MouseLook.LookAxis = LookJoystick.Direction*sensitivity;
     }
 }

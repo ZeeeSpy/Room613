@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviour
         loadingcircle.SetActive(true);
         while (!operation.isDone)
         {
-            loadingcircle.transform.Rotate(Vector3.back * Time.deltaTime);
+            loadingcircle.transform.Rotate(0, 0, -100f * Time.deltaTime);
             yield return null;
         }
     }

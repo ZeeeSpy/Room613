@@ -21,10 +21,6 @@ public class PeepholeScript : MonoBehaviour
 
     public void lookthroughhole()
     {
-        theplayer.GetComponent<FirstPersonController>().enabled = false;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
         roomcanvas.enabled = true;
         if (!isenabled)
         {
@@ -37,8 +33,5 @@ public class PeepholeScript : MonoBehaviour
     public void stoplooking()
     {
         roomcanvas.enabled = false;
-        theplayer.GetComponent<FirstPersonController>().enabled = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 }
