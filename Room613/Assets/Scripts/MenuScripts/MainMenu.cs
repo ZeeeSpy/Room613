@@ -12,6 +12,9 @@ public class MainMenu : MonoBehaviour
     public AudioSource chasesound;
     public AudioSource lightfizzon;
     public GameObject loadingcircle;
+    public GameObject UIButtons;
+    public GameObject abouttext;
+    public GameObject backbutton;
 
     public void LoadLevel(string _levelname)
     {
@@ -20,21 +23,34 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync(_levelname);
     }
 
-    private void Update()
-    {
-
-    }
-
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void About()
+    {
+        UIButtons.SetActive(false);
+        abouttext.SetActive(true);
+        backbutton.SetActive(true);
+    }
+
+    public void back()
+    {
+        UIButtons.SetActive(true);
+        abouttext.SetActive(false);
+        backbutton.SetActive(false);
     }
 
     public void Start()
     {
         StartCoroutine(MenuSequence());
         loadingcircle.SetActive(false);
+        abouttext.SetActive(false);
+        backbutton.SetActive(false);
     }
+
+
     IEnumerator LoadAsynchronously(string _levelname)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(_levelname);

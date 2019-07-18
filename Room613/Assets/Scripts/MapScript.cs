@@ -12,9 +12,6 @@ public class MapScript : MonoBehaviour
 
     public string mapbutton; //m 
     public GameObject maponthewall; //physical map 
-
-    bool mapcollected = false;
-    bool mapisshowing = false;
     public Text texttoshow;
     public GameObject GUImapbutton;
     public GameObject GUImapbuttonExit;
@@ -35,23 +32,19 @@ public class MapScript : MonoBehaviour
     public void MapButtonPress()
     {
         mapimg.SetActive(true);
-        mapisshowing = true;
         GUImapbutton.SetActive(false);
-        GUImapbuttonExit.SetActive(true);
     }
 
     public void MapButtonExitPress()
     {
         Debug.Log("MapExit");
         mapimg.SetActive(false);
-        mapisshowing = false;
         GUImapbutton.SetActive(true);
         GUImapbuttonExit.SetActive(false);
     }
 
     public void mapcollect()
     {
-        mapcollected = true;
         mapparent.enabled = true;
         maponthewall.transform.localScale = new Vector3(0,0,0); //make invisible
         Debug.Log("Map Collected");
