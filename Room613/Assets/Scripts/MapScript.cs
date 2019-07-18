@@ -33,6 +33,7 @@ public class MapScript : MonoBehaviour
     {
         mapimg.SetActive(true);
         GUImapbutton.SetActive(false);
+        GUImapbuttonExit.SetActive(true);
     }
 
     public void MapButtonExitPress()
