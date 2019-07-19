@@ -30,8 +30,11 @@ public class GameOverMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         loadingcircle.SetActive(false);
-        hinttextbox.text = hints();
-    }
+        if (hinttextbox != null)
+        {
+            hinttextbox.text = hints();
+        }
+        }
     public void QuitGame()
     {
         Application.Quit();
