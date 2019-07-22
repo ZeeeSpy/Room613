@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MapScript : MonoBehaviour
+public class MapScript : MonoBehaviour, Interactable
 {
 
     public Canvas mapparent; //map parent
@@ -44,7 +44,7 @@ public class MapScript : MonoBehaviour
         GUImapbuttonExit.SetActive(false);
     }
 
-    public void mapcollect()
+    public void Interact()
     {
         mapparent.enabled = true;
         maponthewall.transform.localScale = new Vector3(0,0,0); //make invisible

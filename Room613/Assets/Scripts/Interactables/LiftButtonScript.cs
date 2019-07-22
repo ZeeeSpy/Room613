@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LiftButtonScript : MonoBehaviour
+public class LiftButtonScript : MonoBehaviour, Interactable
 {
     public Stage1UIScript stage1script;
     public AudioSource elevatorbutton;
 
-    public void liftmethod()
+    public void Interact()
     {
         {
             elevatorbutton.Play();

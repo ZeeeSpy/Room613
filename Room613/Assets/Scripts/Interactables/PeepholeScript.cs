@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
-public class PeepholeScript : MonoBehaviour
+public class PeepholeScript : MonoBehaviour, Interactable
 {
     public GameObject coin;
     public GameObject theplayer;
@@ -25,7 +25,7 @@ public class PeepholeScript : MonoBehaviour
         isenabled = false;
     }
 
-    public void lookthroughhole()
+    public void Interact()
     {
         roomcanvas.enabled = true;
         backbutton.SetActive(true);

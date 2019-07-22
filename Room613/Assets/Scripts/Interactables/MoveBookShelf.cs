@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveBookShelf : MonoBehaviour
+public class MoveBookShelf : MonoBehaviour, Interactable
 {
     public Transform target;
     private bool activated = false;
     private bool moving = false;
     
 
-    public void moveme(){
+    public void Interact(){
         if (!activated)
         {
             moving = true;

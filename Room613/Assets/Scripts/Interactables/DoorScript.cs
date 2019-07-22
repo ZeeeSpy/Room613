@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DoorScript : MonoBehaviour
+public class DoorScript : MonoBehaviour, Interactable
 {
     //bools for remembering door position
     public bool open = false; //all door are closed by default
@@ -41,7 +41,7 @@ public class DoorScript : MonoBehaviour
         }
     }
 
-    public void opendoor()
+    public void Interact()
     {
         if (!setup)
         {

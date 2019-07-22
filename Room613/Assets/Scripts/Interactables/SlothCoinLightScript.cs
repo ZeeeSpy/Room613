@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlothCoinLightScript : MonoBehaviour
+public class SlothCoinLightScript : MonoBehaviour, Interactable
 {
     public Light thislight;
     public GameObject coin;
@@ -11,7 +11,7 @@ public class SlothCoinLightScript : MonoBehaviour
     public CoinPuzzleScript thispuzzlescript;
 
 
-    public void activate()
+    public void Interact()
     {
         buzz.Play();
         thislight.enabled = false;

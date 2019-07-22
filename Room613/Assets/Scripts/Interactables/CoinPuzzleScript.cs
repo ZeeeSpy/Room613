@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CoinPuzzleScript : MonoBehaviour
+public class CoinPuzzleScript : MonoBehaviour, Interactable
 {
     [SerializeField]
     private bool one;
@@ -73,7 +73,7 @@ public class CoinPuzzleScript : MonoBehaviour
         }
     }
 
-    public void interactwithbox()
+    public void Interact()
     {
         if (one && two && three && four && five)
         {

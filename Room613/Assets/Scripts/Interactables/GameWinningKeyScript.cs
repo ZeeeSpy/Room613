@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameWinningKeyScript : MonoBehaviour
+public class GameWinningKeyScript : MonoBehaviour, Interactable
 {
     public GameObject finalinteractA;
     public GameObject finalinteractB;
     public GameObject self;
 
-    public void opendoor()
+    public void Interact()
     {
         finalinteractA.SetActive(true);
         finalinteractB.SetActive(true);

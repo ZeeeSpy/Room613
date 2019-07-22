@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KL : MonoBehaviour
+public class KL : MonoBehaviour, Interactable
 {
     public bool open = false;
     public AudioSource knockingsound;
@@ -39,7 +39,7 @@ public class KL : MonoBehaviour
         }
     }
 
-    public void openlocker()
+    public void Interact()
     {
         if (!activated)
         {

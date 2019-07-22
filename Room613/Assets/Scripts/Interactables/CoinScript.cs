@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinScript : MonoBehaviour
+public class CoinScript : MonoBehaviour, Interactable
 {
     public int coinnumber;
     public GameObject thiscoin;
     public CoinPuzzleScript thispuzzlescript;
 
-    public void activatecoin()
+    public void Interact()
     {
         thispuzzlescript.getcoin(coinnumber);
         thiscoin.SetActive(false);
