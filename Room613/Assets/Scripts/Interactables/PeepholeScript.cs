@@ -17,14 +17,12 @@ public class PeepholeScript : MonoBehaviour, Interactable
     public GameObject backbutton;
     public GameObject UI;
     public GameObject UI2;
-    public AudioListener secondcamlistener;
 
     void Start()
     {
         coin.SetActive(false);
         roomcanvas.enabled = false;
         isenabled = false;
-        secondcamlistener.enabled = false;
     }
 
     public void Interact()
