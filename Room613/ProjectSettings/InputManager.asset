@@ -310,13 +310,13 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: MapKey
-    descriptiveName: The key used to toggle the map on and off
+    m_Name: Escape
+    descriptiveName: android back button
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: m
+    positiveButton: escape
     altNegativeButton: 
-    altPositiveButton: joystick button 1
+    altPositiveButton: 
     gravity: 1000
     dead: 0.001
     sensitivity: 1000

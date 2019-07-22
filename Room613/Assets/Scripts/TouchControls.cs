@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TouchControls : MonoBehaviour
 {
@@ -32,5 +33,7 @@ public class TouchControls : MonoBehaviour
 
         fps.RunAxis = MoveJoystick.Direction;
         fps.m_MouseLook.LookAxis = LookJoystick.Direction*sensitivity;
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {SceneManager.LoadScene("MainMenu", LoadSceneMode.Single); }
     }
 }
