@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ *  Unused script: Used to rotate a celing fan with light above it that would cast real time shadow on ground
+ *  not used due to performance hit of real time lighting calculations on mobile
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

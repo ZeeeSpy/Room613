@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  Unused script: A way for the flashlight to be toggled on and off, not used because there's no reason
+ *  to ever turn off the flashlight.
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -182,11 +182,11 @@ InputManager:
     axis: 1
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Fire1
-    descriptiveName: 
+    m_Name: DebugControls
+    descriptiveName: button used for keyboard controls
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 0
+    positiveButton: =
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

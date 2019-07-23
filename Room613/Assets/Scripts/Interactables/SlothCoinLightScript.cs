@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Upon collection of the sloth coin play a sound and deactivte a coin. Simmilar to coin script but
+ * does more 
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

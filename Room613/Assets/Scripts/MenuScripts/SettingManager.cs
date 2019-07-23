@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ *  Script used in the settings menu to update the playerPrefs. 
+ *  Currently includes: joystick opacity, sensitivty
+ *  Soon will indlude: Difficulty, Brightness
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+* KL/Knocking Locker script. Activates sound when player is near and wobbles the locker door.
+* When interacted with it opens slowly and plays a sound
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

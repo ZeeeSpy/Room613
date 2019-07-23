@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ * Script used by mannequinAI to see if the mannequin is close enough to the player to move
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

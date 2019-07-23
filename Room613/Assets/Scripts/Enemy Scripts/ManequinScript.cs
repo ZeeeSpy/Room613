@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * script rotates the manequin to look at player while chasing. extra rotate needed because model
+ * south isn't world south.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

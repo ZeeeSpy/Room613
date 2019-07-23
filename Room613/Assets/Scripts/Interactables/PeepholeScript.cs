@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ *  On interacting with the peephole the camera is changed and on screen controls deactivated.
+ *  when a coroutine is finished spawns a coin. Can be exited to regain control of player character.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ *  Script that tells the player hints while the play the game such as picking up the map
+ *  and how to use it.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 

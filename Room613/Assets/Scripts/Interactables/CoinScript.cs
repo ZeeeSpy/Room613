@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Script used by all coins so that when they're interacted with they 
+ * dissapear and update the main puzzle count
+ */ 
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

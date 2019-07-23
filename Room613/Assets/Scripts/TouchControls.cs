@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ *  Script in charge of initializing player settings (opacity, sensitivity, and difficulty) on load and 
+ *  converting on screen joystick movement to first person controller movement.
+ *  on update listens for android buttons. 
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -30,10 +36,13 @@ public class TouchControls : MonoBehaviour
     void Update()
     {
         var fps = GetComponent<FirstPersonController>();
-
         fps.RunAxis = MoveJoystick.Direction;
         fps.m_MouseLook.LookAxis = LookJoystick.Direction*sensitivity;
+        AndroidListen();
+    }
 
+    private void AndroidListen()
+    {
         if (Input.GetKeyDown(KeyCode.Escape)) {SceneManager.LoadScene("MainMenu", LoadSceneMode.Single); }
     }
 }

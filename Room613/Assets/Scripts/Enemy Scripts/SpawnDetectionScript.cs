@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Script used by mannequinAI to see where a sfe place to spawn is. Ideally mannequin teleports to an
+ * area where there isn't another mannequin or player, this script helps facilitate that.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

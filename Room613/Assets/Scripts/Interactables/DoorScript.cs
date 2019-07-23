@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Script on every door in the game. Allows doors to be opened and closed with sound as well as locked
+ * on interaction with a door this script updates the map with the door state, openable/locked.
+ */ 
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

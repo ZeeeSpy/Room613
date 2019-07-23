@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Script used to update what coins the player has collected. upon collection of all coins and activating 
+ * the coin box this script also enables the winning triggers at the stair doors.
+ */ 
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,7 +49,7 @@ public class CoinPuzzleScript : MonoBehaviour, Interactable
         youwin.enabled = false;
     }
 
-    public void getcoin(int a)
+    public void getcoin(int a) //TODO replace with switch
     {
         if (a == 1)
         {

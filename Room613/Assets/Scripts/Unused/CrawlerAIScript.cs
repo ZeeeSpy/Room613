@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ *  Unused script: AI for a second enemy type that could "see" further when flashlight was on
+ *  
+ *  not used because play testers never turned off their flashlights to avoid the enemy
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;

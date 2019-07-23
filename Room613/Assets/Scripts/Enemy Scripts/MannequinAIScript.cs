@@ -1,4 +1,13 @@
-﻿using System.Collections;
+﻿/*
+ * dictates what the mannequin enemies do.
+ * If they are being rendered do nothing
+ * If they're not rendered and are within distance they move towards the player
+ * If the player is close enough kill player
+ * If player blocks nav mesh path with door thereby trapping themselves or the mannequin the mannequin
+ * teleports to one of 5 predetermined locations.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;

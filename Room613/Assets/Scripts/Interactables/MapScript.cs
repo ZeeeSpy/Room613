@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  Allows the map on the wall to be collected and opened via onscreen button as well as closed.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

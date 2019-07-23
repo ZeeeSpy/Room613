@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  On interacting with the final door load the "you win" scene
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

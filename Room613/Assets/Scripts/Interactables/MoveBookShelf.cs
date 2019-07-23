@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  Interactable bookshelf is moved across the ground when interacted with.
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

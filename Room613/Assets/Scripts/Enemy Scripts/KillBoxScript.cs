@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  Script that is attached to enemies that checks if the player is within killing distance
+ */ 
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

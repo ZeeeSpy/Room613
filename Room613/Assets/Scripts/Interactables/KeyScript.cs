@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  Script thats placed on keys, that on collection disable the key object and unlock it's door
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

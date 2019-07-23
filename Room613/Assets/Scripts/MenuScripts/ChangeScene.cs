@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ *  Not currently used:
+ *  
+ *  when adding a second level the player can be "dropped" into it by loading the level around them
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

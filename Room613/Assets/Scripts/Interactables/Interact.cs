@@ -1,4 +1,8 @@
-﻿
+﻿/*
+ * Raycast is shot out of First person controller and checks for objects that use 
+ * the "interactable" interface. When an interactable is hit show the UI hand
+ * on screen press the interactable object is interacted with.
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Script in charge of the animated menu via coroutine as well as loading in next scene and cycling between
+ * settings/about and main
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

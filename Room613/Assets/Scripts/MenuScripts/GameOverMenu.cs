@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+ *  shows a hint from an array and lets the player switch scene to main menu or back to the game
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
