@@ -47,7 +47,7 @@ public class Interact : MonoBehaviour
                     {
                         interactIcon.enabled = true;
                     }
-                    if (OSBD)
+                if (OSBD || Input.GetButtonDown("Interact"))
                     {
                         OSBD = false;
                         Interactable iinteractable = hit.collider.GetComponent<Interactable>();

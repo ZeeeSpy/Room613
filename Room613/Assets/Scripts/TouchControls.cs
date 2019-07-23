@@ -2,6 +2,8 @@
  *  Script in charge of initializing player settings (opacity, sensitivity, and difficulty) on load and 
  *  converting on screen joystick movement to first person controller movement.
  *  on update listens for android buttons. 
+ *  
+ *  Keyboard controls are used so that the game can be quickly played without a phone on hand
  */
 
 using System.Collections;
@@ -30,14 +32,32 @@ public class TouchControls : MonoBehaviour
 
         sensitivity = PlayerPrefs.GetFloat("joystick_sensitivity");
         Debug.Log(sensitivity);
+
+
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         var fps = GetComponent<FirstPersonController>();
+
+
+        //Touch Controls
+        /*
         fps.RunAxis = MoveJoystick.Direction;
         fps.m_MouseLook.LookAxis = LookJoystick.Direction*sensitivity;
+        */
+
+
+        //Keyboard Controls
+
+        Vector3 Movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0);
+        fps.RunAxis = Movement;
+        Vector3 Looking = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"),0 );
+        fps.m_MouseLook.LookAxis = Looking;
+
         AndroidListen();
     }
 
