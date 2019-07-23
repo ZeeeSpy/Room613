@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     public GameObject UIButtons;
     public GameObject abouttext;
     public GameObject backbutton;
+    public GameObject privacypolicy;
 
     public void LoadLevel(string _levelname)
     {
@@ -38,6 +39,7 @@ public class MainMenu : MonoBehaviour
         UIButtons.SetActive(false);
         abouttext.SetActive(true);
         backbutton.SetActive(true);
+        privacypolicy.SetActive(true);
     }
 
     public void back()
@@ -45,6 +47,7 @@ public class MainMenu : MonoBehaviour
         UIButtons.SetActive(true);
         abouttext.SetActive(false);
         backbutton.SetActive(false);
+        privacypolicy.SetActive(false);
     }
 
     public void Start()
@@ -89,5 +92,10 @@ public class MainMenu : MonoBehaviour
             menulight.intensity = 1;
 
         }
+    }
+
+    public void OpenLink()
+    {
+        Application.OpenURL("https://iliabahmutov.github.io/Room613/");
     }
 }
