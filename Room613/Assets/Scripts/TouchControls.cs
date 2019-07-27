@@ -50,13 +50,14 @@ public class TouchControls : MonoBehaviour
         fps.m_MouseLook.LookAxis = LookJoystick.Direction*sensitivity;
         */
 
-
         //Keyboard Controls
-
+        
         Vector3 Movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0);
         fps.RunAxis = Movement;
         Vector3 Looking = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"),0 );
         fps.m_MouseLook.LookAxis = Looking;
+        
+
 
         AndroidListen();
     }
