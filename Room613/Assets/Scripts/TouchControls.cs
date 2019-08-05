@@ -40,23 +40,20 @@ public class TouchControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         var fps = GetComponent<FirstPersonController>();
-
-
         //Touch Controls
-        /*
+
         fps.RunAxis = MoveJoystick.Direction;
         fps.m_MouseLook.LookAxis = LookJoystick.Direction*sensitivity;
-        */
 
-        //Keyboard Controls
+        /*
+        //Keyboard Controls 
         
         Vector3 Movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0);
         fps.RunAxis = Movement;
         Vector3 Looking = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"),0 );
         fps.m_MouseLook.LookAxis = Looking;
-        
+        */
 
 
         AndroidListen();

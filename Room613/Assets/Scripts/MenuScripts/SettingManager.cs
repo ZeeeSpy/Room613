@@ -21,9 +21,16 @@ public class SettingManager : MonoBehaviour
     private float sensitivity;
     [SerializeField]
     private int opacity;
+    [SerializeField]
+    private int difficulty;
 
     public Slider opacityslider;
     public Slider sensitivityslider;
+
+    public Toggle Pacifist;
+    public Toggle Nightmare;
+    public Toggle Impossible;
+    public ToggleGroup diffgroup;
 
     private void SetPref(string key, float value)
     {
@@ -53,9 +60,13 @@ public class SettingManager : MonoBehaviour
             opacity = GetPrefInt(OPACITY_PREF);
             opacityslider.value = opacity;
             sensitivityslider.value = sensitivity;
+            Debug.Log("OnLoad" + PlayerPrefs.GetInt(DIFFICULTY_PREF));
+            difficulty = GetPrefInt(DIFFICULTY_PREF);
+            DifficultyToggle(false);
             Debug.Log("Settings Updated");
         } else
         {
+            DifficultyToggle(true);
             SetPref(SENSITIVITY_PREF, 1.1f);
             SetPref(OPACITY_PREF, 200);
         }
@@ -73,7 +84,8 @@ public class SettingManager : MonoBehaviour
         Settings.SetActive(false);
         SetPref(OPACITY_PREF, opacity);
         SetPref(SENSITIVITY_PREF, sensitivity);
-        Debug.Log(PlayerPrefs.GetInt(OPACITY_PREF));
+        SetPref(DIFFICULTY_PREF, difficulty);
+        Debug.Log(PlayerPrefs.GetInt(DIFFICULTY_PREF));
     }
 
     public void SetSensitivity(Slider slider)
@@ -85,5 +97,25 @@ public class SettingManager : MonoBehaviour
     {
         opacity = (int)slider.value;
 
+    }
+
+    public void SetDifficulty(int val)
+    {
+        difficulty = val;
+    }
+
+    private void DifficultyToggle(bool noset)
+    {
+        Toggle[] diffarray = new Toggle[3];
+        diffarray[0] = Pacifist;
+        diffarray[1] = Nightmare;
+        diffarray[2] = Impossible;
+        if (!noset)
+        {
+            diffarray[difficulty].isOn = true;
+        } else
+        {
+            diffarray[1].isOn = true;
+        }
     }
 }
