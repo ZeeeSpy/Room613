@@ -10,4 +10,4 @@ Simply clone the repo and open the cloned directory as a project through unity. 
 ### Acknowledgements
 All assets in the game are either created by myself or are standard assets provided by unity, except for the following:
 The mannequin model used for enemies: https://poly.google.com/view/c1Hf1Rv-OAz    
-The paper texture used for the ingame map: https://www.deviantart.com/dioma/art/Textures-Paper-58028330
+The paper texture used for the ingame map was created by someone going by the username "dioma" on deviantart. They have since deactivated their deviantart account. This is where the texture file used to be: https://www.deviantart.com//art/Textures-Paper-58028330
