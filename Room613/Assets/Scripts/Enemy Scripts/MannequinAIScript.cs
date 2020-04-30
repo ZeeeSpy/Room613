@@ -34,23 +34,27 @@ public class MannequinAIScript : MonoBehaviour
     public SpawnDetectionScript C;
     public SpawnDetectionScript D;
     public SpawnDetectionScript E;
-    private Vector3 ALoc;
-    private Vector3 BLoc;
-    private Vector3 CLoc;
-    private Vector3 DLoc;
-    private Vector3 ELoc;
-    public int prefLoc;
+
+	public SpawnDetectionScript[] SDS;
+
+	private Vector3[] TeleportLocations = new Vector3[]
+	{
+		new Vector3(0.5f,1,22),
+		new Vector3(-21,1,2),
+		new Vector3(2,1,2),
+		new Vector3(23,1,-14),
+		new Vector3(21, 1, -22)
+	};
+
+	public void Start()
+	{
+		SDS = new SpawnDetectionScript[] {A,B,C,D,E};
+	}
+
+	public int prefLoc;
 
     public KillBoxScript mykillbox;
 
-    private void Start()
-    {
-        ALoc = new Vector3(0.5f,1,22);
-        BLoc = new Vector3(-21,1,2);
-        CLoc = new Vector3(2,1,2);
-        DLoc = new Vector3(23,1,-14);
-        ELoc = new Vector3(21, 1, -22);
-    }
     void Update()
     {
 
@@ -67,7 +71,7 @@ public class MannequinAIScript : MonoBehaviour
 
             if (path.status == NavMeshPathStatus.PathPartial) // The agent is trapped
             {
-                Debug.Log("Mannequin is trapped :(");
+                //Debug.Log("Mannequin is trapped :(");
                 // teleportmannequin(); //teleport mannequin to corridor space that player isn't occupying
                 teleportme();
             }
@@ -78,12 +82,12 @@ public class MannequinAIScript : MonoBehaviour
         if (Chasing && (gameObject.GetComponent<Renderer>().isVisible == false)) //if the mannequin is chasing the player and cannot be seen chase
         {
                 myAgent.SetDestination(player.transform.position);  //if not trapped i.e. agent has path to player
-                Debug.Log("Manneqiun Following Player");
+                //Debug.Log("Manneqiun Following Player");
                 playchasesound(true);
 
             if (mykillbox.getplayer())
             {
-                Debug.Log("PlayerDead");
+                //Debug.Log("PlayerDead");
                 gameover();
             }
         } else if (gameObject.GetComponent<Renderer>().isVisible == true) //if the mannequin can be seen
@@ -91,7 +95,7 @@ public class MannequinAIScript : MonoBehaviour
             playchasesound(false);
             myAgent.isStopped = true;
             myAgent.ResetPath();
-            Debug.Log("Manneqiun StoppedFollowing Player");
+            //Debug.Log("Manneqiun StoppedFollowing Player");
         }
          
     }
@@ -131,68 +135,42 @@ public class MannequinAIScript : MonoBehaviour
     private void teleportme() //TODO refactor to make it more readable/efficient
     {
         //PrefLoc stops manniquens being teleported ontop of eachother
-        if (prefLoc == 1 && A.isactorDetected() == false)
-        {
-            Debug.Log("Teleported To A Pref");
-            self.GetComponent<NavMeshAgent>().enabled = false;
-            teleportsound.Play();
-            self.transform.localPosition = ALoc;
-            self.GetComponent<NavMeshAgent>().enabled = true;
-        } else if (prefLoc == 2 && B.isactorDetected() == false)
-        {
-            Debug.Log("Teleported To B Pref");
-            self.GetComponent<NavMeshAgent>().enabled = false;
-            teleportsound.Play();
-            self.transform.localPosition = BLoc;
-            self.GetComponent<NavMeshAgent>().enabled = true;
-        } else if (prefLoc == 3 && C.isactorDetected() == false)
-        {
-            Debug.Log("Teleported To C Pref");
-            self.GetComponent<NavMeshAgent>().enabled = false;
-            teleportsound.Play();
-            self.transform.localPosition = CLoc;
-            self.GetComponent<NavMeshAgent>().enabled = true;
-        }
-
-        else if (A.isactorDetected() == false) { //if nothing in spawn box A
-            Debug.Log("Teleported To A");
-            self.GetComponent<NavMeshAgent>().enabled = false;
-            teleportsound.Play();
-            self.transform.localPosition = ALoc;
-            self.GetComponent<NavMeshAgent>().enabled = true;
-        } else if (B.isactorDetected() == false) // if nothing in spawn box B
-        {
-            Debug.Log("Teleported To B");
-            self.GetComponent<NavMeshAgent>().enabled = false;
-            teleportsound.Play();
-            self.transform.localPosition = BLoc;
-            self.GetComponent<NavMeshAgent>().enabled = true;
-        } else if (C.isactorDetected() == false) // if nothing in spawn box C
-        {
-            Debug.Log("Teleported To C");
-            self.GetComponent<NavMeshAgent>().enabled = false;
-            teleportsound.Play();
-            self.transform.localPosition = CLoc;
-            self.GetComponent<NavMeshAgent>().enabled = true;
-        } else if (D.isactorDetected() == false) {
-            Debug.Log("Teleported To D");
-            self.GetComponent<NavMeshAgent>().enabled = false;
-            teleportsound.Play();
-            self.transform.localPosition = DLoc;
-            self.GetComponent<NavMeshAgent>().enabled = true;
-        } else if (E.isactorDetected() == false)
-                {
-            Debug.Log("Teleported To E");
-            self.GetComponent<NavMeshAgent>().enabled = false;
-            teleportsound.Play();
-            self.transform.localPosition = ELoc;
-            self.GetComponent<NavMeshAgent>().enabled = true;
-        } else
-        {
-            //IF theres a player or mannequin in all of them the player will eventually move allowing the mannequin to teleport
-        }
+		if (!SDS[prefLoc].actorDetected)
+		{
+			TeleportStart();
+		} else
+		{
+			for (int i = 0; i < SDS.Length; i++)
+			{
+				if (!SDS[i].actorDetected)
+				{
+					TeleportStart(i);
+					return;
+				}
+			}
+		}
     }
 
+	private void TeleportStart()
+	{
+		self.GetComponent<NavMeshAgent>().enabled = false;
+		teleportsound.Play();
+		self.transform.localPosition = TeleportLocations[prefLoc];
+		self.GetComponent<NavMeshAgent>().enabled = true;
+	}
+
+	private void TeleportStart(int i)
+	{
+		self.GetComponent<NavMeshAgent>().enabled = false;
+		teleportsound.Play();
+		self.transform.localPosition = TeleportLocations[i];
+		self.GetComponent<NavMeshAgent>().enabled = true;
+	}
+
+	private void TeleportEnd()
+	{
+
+	}
 
     private void gameover()
     {
