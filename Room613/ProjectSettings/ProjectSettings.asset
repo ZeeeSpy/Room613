@@ -124,7 +124,7 @@ PlayerSettings:
     16:10: 0
     16:9: 1
     Others: 0
-  bundleVersion: 0.3.6
+  bundleVersion: 0.3.7
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -161,7 +161,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.ZeSpy.Room613
   buildNumber: {}
-  AndroidBundleVersionCode: 11
+  AndroidBundleVersionCode: 13
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -247,10 +247,10 @@ PlayerSettings:
   clonedFromGUID: c0afd0d1d80e3634a9dac47e8a0426ea
   templatePackageId: com.unity.template.3d@1.0.4
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  AndroidTargetArchitectures: 2
+  AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/ZeSpy/Downloads/MyKey.keystore
+  AndroidKeystoreName: C:/Users/ZeSpy/Desktop/UnityStuff/Room613/MyKey.keystore
   AndroidKeyaliasName: zespykeystore
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
