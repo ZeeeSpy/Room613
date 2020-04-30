@@ -31,7 +31,7 @@ public class TouchControls : MonoBehaviour
         Joy2c.color = new Color32(255, 255, 255, ((byte)PlayerPrefs.GetInt("joystick_opacitiy")));
 
         sensitivity = PlayerPrefs.GetFloat("joystick_sensitivity");
-        Debug.Log(sensitivity);
+        //Debug.Log(sensitivity);
 
 
         Cursor.visible = false;

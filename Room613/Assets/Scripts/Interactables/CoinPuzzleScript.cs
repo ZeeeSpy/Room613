@@ -10,17 +10,6 @@ using UnityEngine.UI;
 
 public class CoinPuzzleScript : MonoBehaviour, Interactable
 {
-    [SerializeField]
-    private bool one;
-    [SerializeField]
-    private bool two;
-    [SerializeField]
-    private bool three;
-    [SerializeField]
-    private bool four;
-    [SerializeField]
-    private bool five;
-
     public Canvas thiscanvas;
     public Text needmorecoins;
     public Text youwin;
@@ -32,16 +21,15 @@ public class CoinPuzzleScript : MonoBehaviour, Interactable
 
     private int count = 0;
     //key stuff
-    public GameObject Key; 
+    public GameObject Key;
+
+	[SerializeField]
+	private bool[] CoinCheck = new bool[6] {true,false,false,false,false,false};
+	private bool alltrue = false;
 
     private void Start()
     {
         Key.SetActive(false);
-        one = false;
-        two = false;
-        three = false;
-        four = false;
-        five = false;
         finaltrig1.SetActive(false);
         finaltrig2.SetActive(false);
         thiscanvas.enabled = false;
@@ -51,36 +39,23 @@ public class CoinPuzzleScript : MonoBehaviour, Interactable
 
     public void getcoin(int a) //TODO replace with switch
     {
-        if (a == 1)
-        {
-            one = true;
-            count++;
-        }
-        else if (a == 2)
-        {
-            two = true;
-            count++;
-        }
-        else if (a == 3)
-        {
-            three = true;
-            count++;
-        }
-        else if (a == 4)
-        {
-            four = true;
-            count++;
-        }
-        else if (a == 5)
-        {
-            five = true;
-            count++;
-        }
+		CoinCheck[a] = true;
+		count++;
+
+		foreach (bool tf in CoinCheck)
+		{
+			if (tf == false)
+			{
+				return;
+			}
+		}
+
+		alltrue = true;
     }
 
     public void Interact()
     {
-        if (one && two && three && four && five)
+        if (alltrue)
         {
             if (toggle)
             {
