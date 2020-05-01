@@ -4,6 +4,7 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
+Room613/Assets/GoogleMobileAds/
 
 # Visual Studio cache directory
 .vs/
