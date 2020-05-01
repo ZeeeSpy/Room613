@@ -16,18 +16,9 @@ public class GameOverMenu : MonoBehaviour
 
     public void LoadLevel(string _levelname)
     {
-        loadingcircle.SetActive(true);
-        spinning = true;
         SceneManager.LoadSceneAsync(_levelname);
-    }
-
-    private void Update()
-    {
-        if (spinning)
-        {
-            loadingcircle.transform.Rotate(0, 0, 100f * Time.deltaTime);
-        }
-    }
+		AdMobScript.instance.ShowInterstitial();
+	}
 
     private void Start()
     {
@@ -38,7 +29,8 @@ public class GameOverMenu : MonoBehaviour
         {
             hinttextbox.text = hints();
         }
-        }
+	}
+
     public void QuitGame()
     {
         Application.Quit();
